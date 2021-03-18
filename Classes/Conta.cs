@@ -1,7 +1,8 @@
 
-using DIO.Bank.Enum;
+using DIO.Bank.Commons;
 using System;
 using System.Diagnostics;
+using System.Threading;
 namespace DIO.Bank.Classes
 {
     public class Conta
@@ -84,11 +85,18 @@ namespace DIO.Bank.Classes
             
             retorno = this.Credito > 0 ? true : false;
 
-            if(retorno) Console.WriteLine("Parabéns você teve credito aprovado de: {0}",this.Credito);
+            if (retorno) {
+
+                Console.WriteLine("\nParabéns você teve credito aprovado de: R${0}", this.Credito);
+                Thread.Sleep(3000);
+                Console.Clear();
+            }
 
             else{
 
-                Console.WriteLine("Infelizmente seu credito não foi aprovado, deposite pelo menos R$ 10, seu saldo e: {0}",this.Saldo);
+                Console.WriteLine("\nInfelizmente seu credito não foi aprovado, deposite pelo menos R$ 10, seu saldo e: {0}",this.Saldo);
+                Thread.Sleep(3000);
+                Console.Clear();
             }
 
         }
@@ -101,8 +109,10 @@ namespace DIO.Bank.Classes
             Debug.Assert(valorSaque > 0);
 
             if(Saldo > 0 && Saldo > valorSaque){
-                Saldo -= valorSaque;
-                Console.WriteLine("Saldo atual da conta de {0} é: {1}",this.Nome,this.Saldo);
+                Saldo = Saldo - valorSaque;
+                Console.WriteLine("\nSaldo atual da conta de {0} é: {1}",Nome,Saldo);
+                Thread.Sleep(5000);
+                Console.Clear();
                 retorno = true;
             }
              
@@ -116,9 +126,11 @@ namespace DIO.Bank.Classes
             Debug.Assert(valorDeposito > 0);
 
             Saldo += valorDeposito;
-        
-            Console.WriteLine("Saldo atual da conta de {0} é: {1}",this.Nome,this.Saldo);
-
+            
+            Console.WriteLine("\nDeposito realizado com sucesso!\n");
+            Thread.Sleep(500);
+            Console.WriteLine("\nSaldo atual da conta de {0} é: {1}",this.Nome,this.Saldo);
+            Console.Clear();
             return true;
         }
 
@@ -131,9 +143,11 @@ namespace DIO.Bank.Classes
             Debug.Assert(!contaTransf.Equals(null));
             Debug.Assert(valorTransf > 0);
 
-            if(this.Sacar(valorTransf)){
+            if(Sacar(valorTransf)){
                 contaTransf.Depositar(valorTransf);
-                Console.WriteLine("Transferencia realizada de {0} para {1} no valor de: {2}",this.Nome,contaTransf.Nome,valorTransf);
+                Console.WriteLine("\nTransferencia realizada de {0} para {1} no valor de: {2}",this.Nome,contaTransf.Nome,valorTransf);
+                Thread.Sleep(5000);
+                Console.Clear();
                 retorno = true;
             }
 

@@ -1,12 +1,22 @@
 ﻿using System;
-
-namespace DIO.Bank
+using System.Collections.Generic;
+using DIO.Bank.Classes;
+namespace DIO.Bank 
 {
-    class Program
+
+    
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            Menu menu = new Menu(new List<Conta>());
+            while(menu.executar){
+                menu.ApresentaMenu();
+            }
+        
         }
     }
+
+
 }

@@ -4,14 +4,11 @@ namespace DIO.Bank.Classes
 
     public class CreditoService
     {
-        
-        private Dictionary<string,double> dictCredito 
-        { 
-            get { return dictCredito?? new Dictionary<string, double>();} 
-            set { dictCredito = value;} 
-        }
+
+        private Dictionary<string, double> dictCredito;
 
         public CreditoService(){
+            dictCredito = new Dictionary<string, double>();
             registraDicionarioCredito();
         }         
         public void analisaCredito( Conta contaCliente) {

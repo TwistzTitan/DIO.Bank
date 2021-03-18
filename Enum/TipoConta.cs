@@ -1,7 +1,9 @@
-namespace DIO.Bank.Enum
+namespace DIO.Bank.Commons
 {
-    public class TipoConta
+        public enum TipoConta
     {
-        
+        PessoaFisica = 1,
+        PessoaJuridica = 2,
     }
+
 }
