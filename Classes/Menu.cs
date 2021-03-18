@@ -153,7 +153,7 @@ namespace DIO.Bank.Classes
 
             double valorTransf = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("\nInforme o nome da conta que fará a tranferência");
+            Console.WriteLine("\nInforme o nome da conta de origem da tranferência");
 
             string nome = Console.ReadLine();
 
@@ -170,7 +170,7 @@ namespace DIO.Bank.Classes
                 return;
             }
 
-            Console.WriteLine("Informe o nome da conta que receberá a tranferência");
+            Console.WriteLine("Informe o nome da conta de destino para tranferência");
 
             string nomeReceptor = Console.ReadLine();
 
